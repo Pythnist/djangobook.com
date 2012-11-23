@@ -755,7 +755,7 @@ edit each HTML field to insert the proper value in the proper place:
     </head>
     <body>
         <h1>Contact us</h1>
-
+        
         {% if errors %}
             <ul>
                 {% for error in errors %}
@@ -765,6 +765,7 @@ edit each HTML field to insert the proper value in the proper place:
         {% endif %}
 
         <form action="/contact/" method="post">
+        {% csrf_token %}
             <p>Subject: <input type="text" name="subject" **value="{{ subject }}"**></p>
             <p>Your e-mail (optional): <input type="text" name="email" **value="{{ email }}"**></p>
             <p>Message: <textarea name="message" rows="10" cols="50">**{{ message }}**</textarea></p>
